@@ -13,7 +13,6 @@ RUN rm launch.bat
 FROM anapsix/alpine-java
 WORKDIR /minecraft
 
-RUN apk add --no-cache tmux
 COPY --from=builder /minecraft /minecraft
 COPY ./launch.sh /minecraft/launch.sh
 RUN chmod +x /minecraft/launch.sh
