@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java as builder
+FROM openjdk:8u212-jre-alpine as builder
 
 ENV JAVA_ARGS="-Xmx3G -Xms2G"
 ENV SERVER_OP=""
@@ -10,7 +10,7 @@ RUN wget -O /tmp/tekkit.zip http://servers.technicpack.net/Technic/servers/tekki
 RUN unzip /tmp/tekkit.zip -d /minecraft/
 RUN rm launch.bat
 
-FROM anapsix/alpine-java
+FROM openjdk:8u212-jre-alpine
 WORKDIR /minecraft
 
 COPY --from=builder /minecraft /minecraft
