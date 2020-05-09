@@ -6,7 +6,7 @@ ENV SERVER_OP=""
 WORKDIR /minecraft
 RUN apk add unzip wget
 
-RUN wget -O /tmp/tekkit.zip http://servers.technicpack.net/Technic/servers/tekkit/Tekkit_Server_3.1.2.zip
+RUN wget --quiet -O /tmp/tekkit.zip http://servers.technicpack.net/Technic/servers/tekkit/Tekkit_Server_${TEKKIT_VERSION}.zip
 RUN unzip /tmp/tekkit.zip -d /minecraft/
 RUN rm launch.bat
 
