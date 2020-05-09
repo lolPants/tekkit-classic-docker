@@ -1,4 +1,5 @@
 FROM openjdk:8u212-jre-alpine as builder
+ARG TEKKIT_VERSION=3.1.2
 
 ENV JAVA_ARGS="-Xmx3G -Xms2G"
 ENV SERVER_OP=""
