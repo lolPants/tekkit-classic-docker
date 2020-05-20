@@ -21,7 +21,6 @@ RUN CGO_ENABLED=0 go build
 FROM tool-builder as trapper
 
 COPY ./tools/trapper .
-RUN ls -lah
 RUN CGO_ENABLED=0 go build
 
 FROM openjdk:8u212-jre-alpine
