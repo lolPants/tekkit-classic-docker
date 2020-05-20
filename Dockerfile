@@ -18,6 +18,12 @@ ARG RCON_CLI_VER=1.4.7
 RUN git clone --branch ${RCON_CLI_VER} https://github.com/itzg/rcon-cli.git .
 RUN CGO_ENABLED=0 go build
 
+FROM tool-builder as trapper
+
+COPY ./tools/trapper .
+RUN ls -lah
+RUN CGO_ENABLED=0 go build
+
 FROM openjdk:8u212-jre-alpine
 WORKDIR /minecraft
 
@@ -27,6 +33,7 @@ ENV JAVA_ARGS="-Xmx3G -Xms2G" \
   RCON_PASSWORD="minecraft"
 
 COPY --from=rcon-cli /tool/rcon-cli /bin/.
+COPY --from=trapper /tool/trapper /bin/.
 COPY --from=builder /minecraft /minecraft
 
 COPY ./launch.sh /minecraft/launch.sh

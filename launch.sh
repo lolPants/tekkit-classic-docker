@@ -8,4 +8,4 @@ then
 fi
 
 # Run Server
-java $JAVA_ARGS -jar Tekkit.jar nogui
+exec trapper java $JAVA_ARGS -jar Tekkit.jar nogui
