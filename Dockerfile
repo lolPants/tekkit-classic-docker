@@ -26,7 +26,7 @@ WORKDIR /minecraft
 
 ENV RCON_PORT=25575 RCON_PASSWORD=minecraft
 
-COPY --from=rcon-cli /tool/rcon-cli .
+COPY --from=rcon-cli /tool/rcon-cli /bin/.
 COPY --from=builder /minecraft /minecraft
 
 COPY ./launch.sh /minecraft/launch.sh
