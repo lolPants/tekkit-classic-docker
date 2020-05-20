@@ -2,7 +2,7 @@
 
 ## 🚀 Running the Image
 ```sh
-$ docker run -d \
+$ docker run -it -d \
     -p 25565:25565 \
     -e SERVER_OP=your_mc_username \
     --name tekkit-classic \
