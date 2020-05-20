@@ -23,20 +23,27 @@ FROM tool-builder as trapper
 COPY ./tools/trapper .
 RUN CGO_ENABLED=0 go build
 
+FROM tool-builder as propenv
+
+COPY ./tools/propenv .
+RUN CGO_ENABLED=0 go build
+
 FROM openjdk:8u212-jre-alpine
 WORKDIR /minecraft
 
 ENV JAVA_ARGS="-Xmx3G -Xms2G" \
   SERVER_OP="" \
+  ENABLE_RCON="true" \
   RCON_PORT="25575" \
-  RCON_PASSWORD="minecraft"
+  RCON_PASSWORD="minecraft" \
+  MOTD="Tekkit Classic powered by Docker"
 
 COPY --from=rcon-cli /tool/rcon-cli /bin/.
 COPY --from=trapper /tool/trapper /bin/.
+COPY --from=propenv /tool/propenv /bin/.
 COPY --from=builder /minecraft /minecraft
 
 COPY ./launch.sh /minecraft/launch.sh
-COPY ./server.properties /minecraft/server.properties
 RUN chmod +x /minecraft/launch.sh
 
 VOLUME /minecraft

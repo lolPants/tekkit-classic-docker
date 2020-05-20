@@ -8,4 +8,5 @@ then
 fi
 
 # Run Server
+propenv
 exec trapper java $JAVA_ARGS -jar Tekkit.jar nogui
