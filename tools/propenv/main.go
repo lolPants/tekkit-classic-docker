@@ -32,7 +32,7 @@ type Variables struct {
 	EnableRcon         bool   `env:"ENABLE_RCON" prop:"enable-rcon"`
 	LevelSeed          string `env:"LEVEL_SEED" prop:"level-seed"`
 	ServerIP           string `env:"SERVER_IP" prop:"server-ip"`
-	MaxBuildHeight     int    `env:"MAX_BUILD_HEIGHT" prop:"max-build-heigh"`
+	MaxBuildHeight     int    `env:"MAX_BUILD_HEIGHT" prop:"max-build-height"`
 	SpawnNPCs          bool   `env:"SPAWN_NPCS" prop:"spawn-npcs"`
 	Debug              bool   `env:"DEBUG" prop:"debug"`
 	WhiteList          bool   `env:"WHITE_LIST" prop:"white-list"`
