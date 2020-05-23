@@ -20,6 +20,7 @@ To configure plugins, you can mount `/minecraft/plugins`. To configure Tekkit mo
 All keys in `server.properties` can be configured at container runtime using environment variables. Available variables and their types are listed below.
 
 ```env
+SPAWN_PROTECTION=<int>
 ALLOW_NETHER=<bool>
 LEVEL_NAME=<string>
 ENABLE_QUERY=<bool>

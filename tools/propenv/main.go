@@ -22,6 +22,7 @@ var (
 
 // Variables represents all server variables
 type Variables struct {
+	SpawnProtection    int    `env:"SPAWN_PROTECTION" prop:"spawn-protection"`
 	AllowNether        bool   `env:"ALLOW_NETHER" prop:"allow-nether"`
 	LevelName          string `env:"LEVEL_NAME" prop:"level-name"`
 	EnableQuery        bool   `env:"ENABLE_QUERY" prop:"enable-query"`
