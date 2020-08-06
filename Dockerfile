@@ -16,17 +16,17 @@ FROM tool-builder as rcon-cli
 ARG RCON_CLI_VER=1.4.7
 
 RUN git clone --branch ${RCON_CLI_VER} https://github.com/itzg/rcon-cli.git .
-RUN CGO_ENABLED=0 go build
+RUN CGO_ENABLED=0 go build -ldflags "-s -w"
 
 FROM tool-builder as trapper
 
 COPY ./tools/trapper .
-RUN CGO_ENABLED=0 go build
+RUN CGO_ENABLED=0 go build -ldflags "-s -w"
 
 FROM tool-builder as propenv
 
 COPY ./tools/propenv .
-RUN CGO_ENABLED=0 go build
+RUN CGO_ENABLED=0 go build -ldflags "-s -w"
 
 FROM openjdk:8u212-jre-alpine
 WORKDIR /minecraft
