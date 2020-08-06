@@ -46,7 +46,7 @@ COPY --from=builder /minecraft /minecraft
 COPY ./launch.sh /minecraft/launch.sh
 RUN chmod +x /minecraft/launch.sh
 
-VOLUME /minecraft
+VOLUME ["/minecraft"]
 EXPOSE 25565
 
 ENTRYPOINT ["/minecraft/launch.sh"]
